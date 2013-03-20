@@ -1,5 +1,4 @@
 RedditDemo::Application.routes.draw do
-  match 'users/' => 'users#index'
-  match 'users/:id' => 'users#show'
+  resources :users
   root to: 'users#index'
 end
