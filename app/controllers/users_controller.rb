@@ -18,7 +18,12 @@ class UsersController < ApplicationController
   	#@user.name = params[:user][:name]
   	#@user.email = params[:user][:email]
   	@user = User.create(params[:user]) #new and save
-  	redirect_to users_path #A way to refer to the action, here is the index action
+  	if @user.save
+      flash[:success] = "Welcome to Reddit Demo!"
+      redirect_to user_path(@user.id) #A way to refer to the action, here is the index action
+    else
+      render 'new'
+    end
   end	
 
   def edit
