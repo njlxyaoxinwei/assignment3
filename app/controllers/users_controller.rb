@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   	#@user.email = params[:user][:email]
   	@user = User.create(params[:user]) #new and save
   	if @user.save
+      sign_in @user
       flash[:success] = "Welcome to Reddit Demo!"
       redirect_to user_path(@user.id) #A way to refer to the action, here is the index action
     else
