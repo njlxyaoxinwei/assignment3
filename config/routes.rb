@@ -12,5 +12,5 @@ RedditDemo::Application.routes.draw do
 
   resources :users
 
-  root to: 'users#index'
+  root to: 'static_pages#home'
 end
