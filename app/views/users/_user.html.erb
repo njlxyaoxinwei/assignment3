@@ -1,11 +1,11 @@
-<li>
-  <%= gravatar_for user%>
-  <%= link_to user.name, user %>
-  <% if current_user == user || current_user.admin?%>
-     <%= link_to "Update", edit_user_path(user) %>
-  <% end %>   
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-  <% end %>
-</li>
+  <li>
+  	<%= gravatar_for user %>
+  	<%= link_to user.name, user %>
+  	<% if current_user == user || current_user.admin?%>
+    	 <%= link_to "Update", edit_user_path(user) %>
+  	<% end %>   
+  	<% if current_user.admin? && !current_user?(user) %>
+    	| <%= link_to "delete", user, method: :delete,
+       	                          	  data: { confirm: "You sure?" } %>
+  	<% end %>
+  </li>

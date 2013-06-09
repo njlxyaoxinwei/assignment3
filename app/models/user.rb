@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+# Customize the number displayed per page
+  self.per_page = 10
+
   private
 
     def create_remember_token
