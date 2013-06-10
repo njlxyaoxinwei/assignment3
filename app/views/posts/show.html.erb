@@ -1,0 +1,8 @@
+<% provide(:title, @post.title) %>
+<div class="row">
+	<h3><a href=<%= @post.link %>><%= @post.title %></a></h3>
+	<h5>Posted by <%= @post.user.name %> </h5>
+	<section>
+		<%= @post.content %>
+	</section>	
+</div>		

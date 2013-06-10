@@ -5,5 +5,5 @@ class Post < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 140 }
   validates :link, presence: true
   default_scope order: 'posts.created_at DESC'
-  self.per_page = 25
+  self.per_page = 20
 end

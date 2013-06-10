@@ -1,0 +1,17 @@
+<% provide(:title, 'Posts') %>
+<h1> Newest Posts </h1>
+<div class="row">
+		<section>
+<%= will_paginate  %>
+
+<ol class="posts">
+	<%= render @posts %>
+</ol>
+
+<%= will_paginate   %>
+</section>
+<section>
+<h3> New Post </h3>
+<%= render 'shared/post_form' %>
+</section>
+</div>

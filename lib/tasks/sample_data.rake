@@ -19,9 +19,9 @@ namespace :db do
 		50.times do |n|
 			title = Faker::Lorem.sentence(2)
 			if n<=25
-				users.each {|user| user.posts.create!(title: title, link:"www.sina.com.cn", content: Faker::Lorem.sentence(5))}
+				users.each {|user| user.posts.create!(title: title, link:"http://www.sina.com.cn", content: Faker::Lorem.sentence(5))}
 			else
-				users.each {|user| user.posts.create!(title:title, link:"www.sina.com.cn")}
+				users.each {|user| user.posts.create!(title:title, link:"http://www.sina.com.cn")}
 			end
 		end
 	end

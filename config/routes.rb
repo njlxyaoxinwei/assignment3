@@ -1,6 +1,6 @@
 RedditDemo::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
-  resources :posts, only: [:create, :destroy, :show]
+  resources :posts, only: [:create, :destroy, :show, :index]
   resources :users
   match '/home', to: 'static_pages#home'
 
