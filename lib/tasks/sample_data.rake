@@ -13,8 +13,16 @@ namespace :db do
 						 email: email,
 						 password: password,
 						 password_confirmation: password)
+		end
 
-			
+		users = User.all(limit: 6)
+		50.times do |n|
+			title = Faker::Lorem.sentence(2)
+			if n<=25
+				users.each {|user| user.posts.create!(title: title, link:"www.sina.com.cn", content: Faker::Lorem.sentence(5))}
+			else
+				users.each {|user| user.posts.create!(title:title, link:"www.sina.com.cn")}
+			end
 		end
 	end
 end
