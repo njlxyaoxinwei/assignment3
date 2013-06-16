@@ -4,6 +4,6 @@
 		Posted <%= time_ago_in_words(post.created_at) %> ago by <%= link_to post.user.name, user_path(post.user) %> 
 	<% upvotes = post.votes.where(:up=>true).count %>
 	<% downvotes = post.votes.count - upvotes %>
-	<p class="pull-right"> up <%= upvotes %> down <%= downvotes %> </p>
+	<p class="pull-right"> <%= upvotes %> up <%= downvotes %> down </p>
 	</span>
 </li>	
