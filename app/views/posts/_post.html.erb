@@ -1,6 +1,9 @@
 <li>
 	<span class="post_title"><%= link_to post.title, post_path(post) %></span>
 	<span class="timestamp">
-		Posted <%= time_ago_in_words(post.created_at) %> ago by <%= link_to post.user.name, user_path(post.user) %>
+		Posted <%= time_ago_in_words(post.created_at) %> ago by <%= link_to post.user.name, user_path(post.user) %> 
+	<% upvotes = post.votes.where(:up=>true).count %>
+	<% downvotes = post.votes.count - upvotes %>
+	<p class="pull-right"> up <%= upvotes %> down <%= downvotes %> </p>
 	</span>
 </li>	

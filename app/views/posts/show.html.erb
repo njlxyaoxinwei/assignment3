@@ -25,7 +25,7 @@
 				<% else %>
 				    You downvoted this post.
 				<% end %>
-				<%= link_to "unvote?", vote_path(@vote_old, post: @post), method: :delete %></br>
+				<%= link_to "unvote?", vote_path(@vote_old, post: @post), method: :delete %>
 			<h5>
 				upvotes <%= upvotes %> downvotes <%= downvotes %>
 			</h5>

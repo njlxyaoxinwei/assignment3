@@ -12,8 +12,8 @@ class VotesController < ApplicationController
 			flash[:success] = "Vote created!"
 			redirect_to	post_path(@post)
 		else
-		    flash[:error] = "Cannot vote right now"
-		    render post_path(@post)
+		    flash[:error] = "You already voted!"
+		    redirect_to post_path(@post)
 		end    	
 	end
 
