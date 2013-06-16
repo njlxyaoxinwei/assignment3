@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610024542) do
+ActiveRecord::Schema.define(:version => 20130615211019) do
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -45,5 +45,15 @@ ActiveRecord::Schema.define(:version => 20130610024542) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "votes", :force => true do |t|
+    t.boolean  "up"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "votes", ["user_id", "post_id", "created_at"], :name => "index_votes_on_user_id_and_post_id_and_created_at"
 
 end

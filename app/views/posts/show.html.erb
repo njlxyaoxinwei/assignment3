@@ -6,4 +6,13 @@
 		<a href=<%= @post.link %>><%= @post.link %></a></br>
 		<%= @post.content %>
 	</section>	
+	<section>
+		<h5>
+			<%= link_to "upvotes", votes_path(up:true, post: @post, user: current_user), method: :post %> 
+			<% a = @post.votes.where(:up=>true).count %>
+			<%= a %> 
+			<%= link_to "downvotes", votes_path(up:false, post: @post, user: current_user), method: :post %>  
+			<%= @post.votes.count - a %> 
+		</h5>
+	</section>
 </div>		
