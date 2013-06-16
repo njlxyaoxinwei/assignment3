@@ -6,13 +6,29 @@
 		<a href=<%= @post.link %>><%= @post.link %></a></br>
 		<%= @post.content %>
 	</section>	
+	<hr></hr>
 	<section>
-		<h5>
-			<%= link_to "upvotes", votes_path(up:true, post: @post, user: current_user), method: :post %> 
-			<% a = @post.votes.where(:up=>true).count %>
-			<%= a %> 
-			<%= link_to "downvotes", votes_path(up:false, post: @post, user: current_user), method: :post %>  
-			<%= @post.votes.count - a %> 
-		</h5>
+		<% @vote_old = @post.votes.find_by_user_id(current_user) %>
+		<% upvotes = @post.votes.where(:up=>true).count %>
+		<% downvotes = @post.votes.count - upvotes %>
+		<% if  not @vote_old %>
+			<h5>
+				<%= link_to "upvotes", votes_path(up:true, post: @post, user: current_user), method: :post %> 
+				<%= upvotes %> 
+				<%= link_to "downvotes", votes_path(up:false, post: @post, user: current_user), method: :post %>  
+				<%= downvotes %> 
+			</h5>
+		<% else %>
+				<% up = @vote_old.up %>
+				<% if up %>
+					You upvoted this post. 
+				<% else %>
+				    You downvoted this post.
+				<% end %>
+				<%= link_to "unvote?", vote_path(@vote_old, post: @post), method: :delete %></br>
+			<h5>
+				upvotes <%= upvotes %> downvotes <%= downvotes %>
+			</h5>
+		<% end %>
 	</section>
 </div>		

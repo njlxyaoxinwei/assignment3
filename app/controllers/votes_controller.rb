@@ -12,11 +12,15 @@ class VotesController < ApplicationController
 			flash[:success] = "Vote created!"
 			redirect_to	post_path(@post)
 		else
-		    redirect_to post_path(@post)
+		    flash[:error] = "Cannot vote right now"
+		    render post_path(@post)
 		end    	
 	end
 
 	def destroy
+		Vote.find(params[:id]).destroy
+		flash[:success] = "Vote destroyed!"
+		redirect_to post_path(params[:post])
 	end
 
 

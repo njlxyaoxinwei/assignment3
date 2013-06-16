@@ -4,6 +4,7 @@ class Vote < ActiveRecord::Base
   belongs_to :post
   validates :user_id, presence: true
   validates :post_id, presence: true
-  validates :up, presence: true
+  #validates :up, presence: true //This won't work because :up could be false.
+  validates_inclusion_of :up, :in => [true, false]
   default_scope order: 'votes.created_at DESC'
 end
