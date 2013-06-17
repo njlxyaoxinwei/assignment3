@@ -1,0 +1,6 @@
+<li>
+	<span class="comment_content"><%= comment.content %></span>
+	<span class="timestamp">
+		Posted at <%= time_tag(comment.created_at) %> by <%= link_to comment.user.name, user_path(comment.user) %> 
+	</span>
+</li>	

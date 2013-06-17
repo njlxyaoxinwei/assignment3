@@ -1,9 +1,9 @@
 # == Schema Information
 #
-# Table name: votes
+# Table name: comments
 #
 #  id         :integer          not null, primary key
-#  up         :boolean
+#  content    :text
 #  user_id    :integer
 #  post_id    :integer
 #  created_at :datetime         not null
@@ -12,7 +12,7 @@
 
 require 'test_helper'
 
-class VoteTest < ActiveSupport::TestCase
+class CommentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

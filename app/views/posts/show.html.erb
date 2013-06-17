@@ -31,4 +31,17 @@
 			</h5>
 		<% end %>
 	</section>
+	<hr></hr>
+	<section>
+		<h4> Comments </h4>
+		<%= will_paginate @comments %>
+		<ol class="comments">
+			<%= render @comments %>
+		</ol>	
+		<%= will_paginate @comments %>
+	</section>
+	<section>
+		<h4> Write new Comment </h4>
+		<%= render 'shared/comment_form' %>
+	</section>
 </div>		

@@ -3,6 +3,7 @@ RedditDemo::Application.routes.draw do
   resources :posts, only: [:create, :destroy, :show, :index]
   resources :users
   resources :votes, only: [:create, :destroy]
+  resources :comments, only: [:create, :destroy]
   match '/home', to: 'static_pages#home'
 
   match '/about', to: 'static_pages#about'

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: votes
+#
+#  id         :integer          not null, primary key
+#  up         :boolean
+#  user_id    :integer
+#  post_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Vote < ActiveRecord::Base
   attr_accessible #:user_id, :post_id, :up
   belongs_to :user  
