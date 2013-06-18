@@ -1,0 +1,12 @@
+<% @comments.each do |comment| %>
+	<li>
+		<span class="comment_content"><%= comment.content %></span>
+		<span class="timestamp">
+			Posted at <%= time_tag(comment.created_at) %> </br>
+			For post <%= link_to Post.find(comment.post_id).title, post_path(comment.post.id) %>
+		</span></br>
+		<% if current_user.admin? %>
+			<%= link_to "delete this comment", comment, method: :delete, data: { confirm: "You sure?" } %>
+		<% end %>		
+	</li>
+<% end %>	

@@ -1,7 +1,7 @@
 <% provide(:title, @post.title) %>
 <div class="row">
 	<h3><%= @post.title %></h3>
-	<h5>Posted by <%= @post.user.name %> </h5>
+	<h5>Posted by <%= link_to @post.user.name, user_path(@post.user) %> </h5>
 	<section>
 		<a href=<%= @post.link %>><%= @post.link %></a></br>
 		<%= @post.content %>
@@ -30,6 +30,9 @@
 				upvotes <%= upvotes %> downvotes <%= downvotes %>
 			</h5>
 		<% end %>
+		<% if current_user.admin? %>
+			<%= link_to "delete this post with all comments", @post, method: :delete, data: { confirm: "You sure?" } %>
+		<% end %>	
 	</section>
 	<hr></hr>
 	<section>

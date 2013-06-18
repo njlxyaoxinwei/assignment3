@@ -1,3 +1,9 @@
+
+# These are actually the helper functions for the entire app, 
+# available in both controllers and views, as I included them 
+# in the application controller
+
+
 module SessionsHelper
 	def sign_in(user)
 		cookies.permanent[:remember_token] = user.remember_token #expire 20 years from now
@@ -40,4 +46,8 @@ module SessionsHelper
 		self.current_user = nil
 		cookies.delete :remember_token
 	end
+
+	 def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
 end

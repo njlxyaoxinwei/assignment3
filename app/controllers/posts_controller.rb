@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 	before_filter :signed_in_user
+	before_filter :admin_user,     only: :destroy
 
     def index
     	@posts=Post.paginate(page: params[:page])
@@ -24,6 +25,9 @@ class PostsController < ApplicationController
     end
 
 	def destroy
+		Post.find(params[:id]).destroy
+		flash[:success] = "Post destroyed!"
+		redirect_to posts_path
 	end
 
 end
