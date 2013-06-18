@@ -31,7 +31,7 @@ namespace :db do
 			content = Faker::Lorem.sentence(1)
 			posts.each do |post|
 				comment = post.comments.build(content: content)
-				comment.user_id = rand(1..100)
+				comment.user_id = rand(100)
 				comment.save				
 			end
 		end
