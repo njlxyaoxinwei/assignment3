@@ -6,6 +6,8 @@ This assignment is pretty long and complicated (by design). If you feel like thi
 
 You will benefit greatly by reading through the [Rails Tutorial](http://ruby.railstutorial.org/chapters) and completeing the exercises, but it's not technicaly required. The tutorial covers a lot of material direcly related to building this app, though you will have to adapt a good amount, and 'make it your own'.
 
+http://tinyurl.com/mduv3p4
+
 ## If You Get Stuck
 
 Getting stuck is normal! Programming is hard, but thankfully it's mostly a team sport :)
